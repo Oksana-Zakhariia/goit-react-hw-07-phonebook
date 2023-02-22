@@ -5,24 +5,6 @@ import { fetchContacts } from 'redux/operations';
 import { getIsLoading } from 'redux/selectors';
 import { getError } from 'redux/selectors';
 
-// export const App = () => {
-//   const dispatch = useDispatch();
-//   const { items, isLoading, error } = useSelector(getContacts);
-
-//   console.log(items);
-
-//   useEffect(() => {
-//     dispatch(fetchContacts());
-//   }, [dispatch]);
-
-//   return (
-//     <div>
-//       {isLoading && <b>Loading tasks...</b>}
-//       {error && <b>{error}</b>}
-//       <p>{items.length > 0 && JSON.stringify(items, null, 2)}</p>
-//     </div>
-//   );
-// };
 import { Container } from 'components/App/App.styled';
 import { Section } from 'components/Section/Section';
 import { ContactForm } from 'components/Form/Form';
@@ -45,11 +27,11 @@ export const App = () => {
       <Container>
         <Section title="Phonebook">
           <ContactForm></ContactForm>
-          {isLoading && !error && <b>Request in progress...</b>}
         </Section>
         <Section title="Contacts">
           <SearchBox></SearchBox>
           <ContactList></ContactList>
+          {isLoading && !error && <b>Request in progress...</b>}
         </Section>
       </Container>
     </ThemeProvider>
