@@ -5,7 +5,6 @@ import { FormButton, Input, FormLabel } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
-import { nanoid } from '@reduxjs/toolkit';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -22,7 +21,7 @@ export const ContactForm = () => {
   const contacts = useSelector(getContacts);
   const handleSubmit = (values, { resetForm }) => {
     const { name, number } = values;
-    // console.log(values);
+    console.log(values);
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -44,7 +43,6 @@ export const ContactForm = () => {
         initialValues={{
           name: '',
           number: '',
-          id: nanoid(5),
         }}
         validationSchema={SignupSchema}
         onSubmit={handleSubmit}

@@ -15,7 +15,6 @@ import { theme } from 'components/Theme';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const { items, isLoading, error } = useSelector(getContacts);
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
 
